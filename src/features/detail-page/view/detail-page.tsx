@@ -1,6 +1,6 @@
 import { MDXRemote } from "next-mdx-remote/rsc"
-import { getContents } from "@/services/lib/getContents"
-import { markdownComponent } from "@/services/markdown/markdown"
+import { getContents } from "@/services/lib"
+import { markdownComponent } from "@/services/markdown"
 
 interface props {
     id: string

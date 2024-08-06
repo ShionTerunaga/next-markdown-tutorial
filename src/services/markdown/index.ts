@@ -1,0 +1,1 @@
+export { markdownComponent } from "./markdown"
