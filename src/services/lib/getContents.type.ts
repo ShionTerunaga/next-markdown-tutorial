@@ -1,4 +1,5 @@
 export type overviewContents = {
+    id: string
     title: string
     date: number
     description: string

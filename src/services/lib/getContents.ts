@@ -5,7 +5,7 @@ import { contentsPath } from "./getContents.data"
 import type { contents, overviewContents } from "./getContents.type"
 import "highlight.js/styles/vs2015.min.css"
 
-export const getContents = async () => {
+export const getContents = (id: string) => {
     const pullFolders = fs.readdirSync(contentsPath)
 
     const subResponse: contents[] = pullFolders.map((item) => {
@@ -26,6 +26,10 @@ export const getContents = async () => {
         }
     })
 
+    const filterResponse: contents[] = subResponse.filter(
+        (item) => item.overview.id === id
+    )
+
     const option = {
         mdxOptions: {
             remarkPlugins: [remarkGfm],
@@ -33,7 +37,7 @@ export const getContents = async () => {
         }
     }
 
-    const response = { source: subResponse[0].source, options: option }
+    const response = { source: filterResponse[0].source, options: option }
 
     return response
 }
